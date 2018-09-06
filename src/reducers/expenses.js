@@ -1,4 +1,5 @@
 const expensesDefaultState = []
+
 export default (state = expensesDefaultState, action) => {
   switch (action.type) {
     case 'ADD_EXPENSE':

@@ -1,8 +1,11 @@
 import { createStore } from 'redux'
-import expensesReducer from './reducers/expenses.js'
+import rootReducer from './reducers/index.js'
 
 const configStore = () => {
-  return createStore(expensesReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  return createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 }
 
 export default configStore
