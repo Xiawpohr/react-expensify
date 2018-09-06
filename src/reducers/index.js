@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import expensesReducer from './expenses'
-import filterReducer from './filters'
+import expenses from './expenses'
+import filters from './filters'
 
 export default combineReducers({
-  expensesReducer,
-  filterReducer
+  expenses,
+  filters
 })
