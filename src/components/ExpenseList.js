@@ -1,17 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import ExpenseListItem from './ExpenseListItem.js'
 
-const expenses = [
-  { id: 1, description: 'water bill', amount: 100, createdAt: 2000 },
-  { id: 2, description: 'rent bill', amount: 2000, createdAt: 4200 },
-  { id: 3, description: 'electricity bill', amount: 500, createdAt: 3000 }
-]
-
-const ExpenseList = () => (
+const ExpenseList = (props) => (
   <div>
     <h2>Expense List</h2>
-    {expenses.map(expense => <ExpenseListItem key={expense.id} {...expense} />)}
+    {props.expenses.map(expense => <ExpenseListItem key={expense.id} {...expense} />)}
   </div>
 )
 
-export default ExpenseList
+const mapStateToProps = state => ({
+  expenses: state.expenses
+})
+
+export default connect(mapStateToProps)(ExpenseList)
