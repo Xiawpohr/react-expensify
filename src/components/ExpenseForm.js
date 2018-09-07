@@ -5,10 +5,10 @@ class ExpenseForm extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      description: '',
-      amount: '',
-      createdAt: null,
-      note: '',
+      description: props.description || '',
+      amount: props.amount || '',
+      createdAt: props.createdAt || null,
+      note: props.note || '',
       calendarFocused: null,
       error: ''
     }
