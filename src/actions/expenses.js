@@ -1,4 +1,9 @@
 import uuid from 'uuid'
+import {
+  ADD_EXPENSE,
+  EDIT_EXPENSE,
+  REMOVE_EXPENSE
+} from './actionTypes.js'
 
 export const addExpense = ({
   description = '',
@@ -6,7 +11,7 @@ export const addExpense = ({
   createdAt = 0,
   note = ''
 } = {}) => ({
-  type: 'ADD_EXPENSE',
+  type: ADD_EXPENSE,
   expense: {
     id: uuid(),
     description,
@@ -17,12 +22,12 @@ export const addExpense = ({
 })
 
 export const editExpense = (id, updates) => ({
-  type: 'EDIT_EXPENSE',
+  type: EDIT_EXPENSE,
   id,
   updates
 })
 
 export const removeExpense = (id) => ({
-  type: 'REMOVE_EXPENSE',
+  type: REMOVE_EXPENSE,
   id
 })

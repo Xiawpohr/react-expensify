@@ -1,10 +1,16 @@
+import {
+  ADD_EXPENSE,
+  EDIT_EXPENSE,
+  REMOVE_EXPENSE
+} from '../actions/actionTypes.js'
+
 const expensesDefaultState = []
 
 export default (state = expensesDefaultState, action) => {
   switch (action.type) {
-    case 'ADD_EXPENSE':
+    case ADD_EXPENSE:
       return [...state, action.expense]
-    case 'EDIT_EXPENSE':
+    case EDIT_EXPENSE:
       return state.map(expense => {
         if (expense.id === action.id) {
           return {...expense, ...action.updates}
@@ -12,7 +18,7 @@ export default (state = expensesDefaultState, action) => {
           return expense
         }
       })
-    case 'REMOVE_EXPENSE':
+    case REMOVE_EXPENSE:
       return state.filter(expense => expense.id !== action.id)
     default:
       return state
