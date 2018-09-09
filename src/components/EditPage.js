@@ -22,8 +22,8 @@ const mapStateToProps = (state, props) => {
   const expense = state.expenses.find(expense => expense.id === props.match.params.id)
   return {
     description: expense.description,
-    amount: (expense.amount / 100).toString(),
-    createdAt: moment(expense.createdAt),
+    amount: expense.amount,
+    createdAt: expense.createdAt,
     note: expense.note
   }
 }

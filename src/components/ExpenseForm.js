@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 
 class ExpenseForm extends React.Component {
@@ -6,8 +7,8 @@ class ExpenseForm extends React.Component {
     super(props)
     this.state = {
       description: props.description || '',
-      amount: props.amount || '',
-      createdAt: props.createdAt || null,
+      amount: props.amount ? (props.amount / 100).toString() : '',
+      createdAt: props.createdAt ? moment(props.createdAt) : moment(),
       note: props.note || '',
       calendarFocused: null,
       error: ''
@@ -67,7 +68,7 @@ class ExpenseForm extends React.Component {
         <form onSubmit={this.onSubmit} >
           <input
             type='text'
-            placeholder='Descriptoin'
+            placeholder='Description'
             autoFocus
             value={this.state.description}
             onChange={this.onDescriptionChange}
