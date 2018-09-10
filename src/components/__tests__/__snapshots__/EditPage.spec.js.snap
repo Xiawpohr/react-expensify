@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Edit Page correctly 1`] = `
+<div>
+  Edit Page id: 
+  abc
+  <ExpenseForm
+    amount={1000}
+    createdAt={0}
+    description="bill"
+    note=""
+    onSubmit={[Function]}
+  />
+  <button
+    onClick={[Function]}
+  >
+    Remove
+  </button>
+</div>
+`;
