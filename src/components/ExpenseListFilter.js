@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { DateRangePicker } from 'react-dates'
 import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filter.js'
 
-class ExpenseListFilter extends React.Component {
+export class ExpenseListFilter extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -17,21 +17,21 @@ class ExpenseListFilter extends React.Component {
 
   onTextChange (e) {
     const text = e.target.value
-    this.props.dispatch(setTextFilter(text))
+    this.props.setTextFilter(text)
   }
 
   onSortByChange (e) {
     const sortBy = e.target.value
     if (sortBy === 'date') {
-      this.props.dispatch(sortByDate())
+      this.props.sortByDate()
     } else if (sortBy === 'amount') {
-      this.props.dispatch(sortByAmount())
+      this.props.sortByAmount()
     }
   }
 
   onDatesChange ({ startDate, endDate }) {
-    this.props.dispatch(setStartDate(startDate))
-    this.props.dispatch(setEndDate(endDate))
+    this.props.setStartDate(startDate)
+    this.props.setEndDate(endDate)
   }
 
   onFocusChange (calendarFocused) {
@@ -71,10 +71,15 @@ class ExpenseListFilter extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  text: state.filters.text,
-  sortBy: state.filters.sortBy,
-  startDate: state.filters.startDate,
-  endDate: state.filters.endDate
+  ...state.filters
 })
 
-export default connect(mapStateToProps)(ExpenseListFilter)
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
+  sortByDate: () => dispatch(sortByDate()),
+  sortByAmount: () => dispatch(sortByAmount()),
+  setStartDate: (date) => dispatch(setStartDate(date)),
+  setEndDate: (date) => dispatch(setEndDate(date))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilter)
