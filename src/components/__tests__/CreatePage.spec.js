@@ -3,12 +3,12 @@ import { shallow } from 'enzyme'
 import { CreatePage } from '../CreatePage.js'
 import moment from '../__mocks__/moment.js'
 
-let onSubmit, history, wrapper
+let addExpense, history, wrapper
 
 beforeEach(() => {
-  onSubmit = jest.fn()
+  addExpense = jest.fn()
   history = { push: jest.fn() }
-  wrapper = shallow(<CreatePage onSubmit={onSubmit} history={history} />)
+  wrapper = shallow(<CreatePage addExpense={addExpense} history={history} />)
 })
 
 test('should render Create Page correctly', () => {
@@ -23,6 +23,6 @@ test('should handle submit event', () => {
     note: ''
   }
   wrapper.find('ExpenseForm').prop('onSubmit')(expense)
-  expect(onSubmit).toHaveBeenLastCalledWith(expense)
+  expect(addExpense).toHaveBeenLastCalledWith(expense)
   expect(history.push).toHaveBeenLastCalledWith('/')
 })
