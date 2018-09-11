@@ -4,5 +4,6 @@ exports[`should render Dashboard page correctly 1`] = `
 <div>
   <Connect(ExpenseListFilter) />
   <Connect(Component) />
+  <Connect(Component) />
 </div>
 `;
