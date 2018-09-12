@@ -31,6 +31,20 @@ export const editExpenseFailure = (error) => ({
   error
 })
 
+export const removeExpenseStart = () => ({
+  type: types.REMOVE_EXPENSE_START
+})
+
+export const removeExpenseSuccess = (id) => ({
+  type: types.REMOVE_EXPENSE_SUCCESS,
+  id
+})
+
+export const removeExpenseFailure = (error) => ({
+  type: types.REMOVE_EXPENSE_FAILURE,
+  error
+})
+
 // async
 export const addExpense = (expense = {}) => {
   const {
@@ -72,7 +86,15 @@ export const editExpense = (id, updates = {}) => {
   }
 }
 
-export const removeExpense = (id) => ({
-  type: types.REMOVE_EXPENSE,
-  id
-})
+export const removeExpense = (id) => {
+  return async (dispatch) => {
+    dispatch(removeExpenseStart())
+    try {
+      await db.collection('expenses').doc(id).delete()
+      dispatch(removeExpenseSuccess(id))
+    } catch (error) {
+      dispatch(removeExpenseFailure(error))
+      return error
+    }
+  }
+}

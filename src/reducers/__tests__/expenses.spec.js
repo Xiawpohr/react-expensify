@@ -45,7 +45,7 @@ test('should not edit expense if expense is not found', () => {
     createdAt: 8000,
     note: 'the very expensive house'
   }]
-  const state = expensesReducer(expenses, actions.editExpense('-1', { amount: 9000 }))
+  const state = expensesReducer(expenses, actions.editExpenseSuccess('-1', { amount: 9000 }))
   expect(state).toEqual(expenses)
 })
 
@@ -57,7 +57,7 @@ test('should handle remove expense action', () => {
     createdAt: 8000,
     note: 'the very expensive house'
   }]
-  const nextState = expensesReducer(expenses, actions.removeExpense('1'))
+  const nextState = expensesReducer(expenses, actions.removeExpenseSuccess('1'))
   expect(nextState).toEqual([])
 })
 
@@ -69,6 +69,6 @@ test('should not remove expense if expense is not found', () => {
     createdAt: 8000,
     note: 'the very expensive house'
   }]
-  const state = expensesReducer(expenses, actions.removeExpense('-1'))
+  const state = expensesReducer(expenses, actions.removeExpenseSuccess('-1'))
   expect(state).toEqual(expenses)
 })

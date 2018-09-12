@@ -20,8 +20,12 @@ export default (state = expensesDefaultState, action) => {
       })
     case types.EDIT_EXPENSE_FAILURE:
       return state
-    case types.REMOVE_EXPENSE:
+    case types.REMOVE_EXPENSE_START:
+      return state
+    case types.REMOVE_EXPENSE_SUCCESS:
       return state.filter(expense => expense.id !== action.id)
+    case types.REMOVE_EXPENSE_FAILURE:
+      return state
     default:
       return state
   }

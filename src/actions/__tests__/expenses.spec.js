@@ -5,6 +5,7 @@ import expenses from '../expenses.fixtures.js'
 import * as types from '../actionTypes.js'
 import * as actions from '../expenses.js'
 
+// setup
 const mockStore = configureStore([thunk])
 
 beforeEach(() => {
@@ -25,6 +26,7 @@ afterEach(async () => {
   batch.commit()
 })
 
+// sync
 test('should setup ADD_EXPENSE_START action object', () => {
   expect(actions.addExpenseStart()).toEqual({
     type: types.ADD_EXPENSE_START
@@ -82,6 +84,29 @@ test('should setup EDIT_EXPENSE_FAILURE action object', () => {
   })
 })
 
+test('should setup REMOVE_EXPENSE_START action object', () => {
+  expect(actions.removeExpenseStart()).toEqual({
+    type: types.REMOVE_EXPENSE_START
+  })
+})
+
+test('should setup REMOVE_EXPENSE_SUCCESS action object', () => {
+  const id = expenses[0].id
+  expect(actions.removeExpenseSuccess(id)).toEqual({
+    type: types.REMOVE_EXPENSE_SUCCESS,
+    id
+  })
+})
+
+test('should setup REMOVE_EXPENSE_FAILURE action object', () => {
+  const error = 'There is something wrong.'
+  expect(actions.removeExpenseFailure(error)).toEqual({
+    type: types.REMOVE_EXPENSE_FAILURE,
+    error
+  })
+})
+
+// async
 test('should handle add expense async action', async () => {
   const expense = {
     description: 'test expense',
@@ -144,9 +169,13 @@ test('should handle edit expense async action', async () => {
   expect(updatedExpense.description).toBe(updates.description)
 })
 
-test('should setup remove expense action object', () => {
-  expect(actions.removeExpense('removed-id')).toEqual({
-    type: types.REMOVE_EXPENSE,
-    id: 'removed-id'
-  })
+test('should handle remove expense action object', async () => {
+  const id = expenses[1].id
+  const store = mockStore([])
+  await store.dispatch(actions.removeExpense(id))
+  const mockActions = store.getActions()
+  expect(mockActions[0]).toEqual(actions.removeExpenseStart())
+  expect(mockActions[1]).toEqual(actions.removeExpenseSuccess(id))
+  const removedExpenseDoc = await db.collection('expenses').doc(id).get()
+  expect(removedExpenseDoc.exists).toBe(false)
 })
