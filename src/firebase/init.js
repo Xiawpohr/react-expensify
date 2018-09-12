@@ -2,12 +2,12 @@ import * as firebase from 'firebase/app'
 import 'firebase/firestore'
 
 const config = {
-  apiKey: 'AIzaSyBcpMl3pQmUyhySD7n8wju_zQhGvOt1PzI',
-  authDomain: 'react-expensify-b763a.firebaseapp.com',
-  databaseURL: 'https://react-expensify-b763a.firebaseio.com',
-  projectId: 'react-expensify-b763a',
-  storageBucket: 'react-expensify-b763a.appspot.com',
-  messagingSenderId: '683618825496'
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 }
 
 if (!firebase.apps.length) {

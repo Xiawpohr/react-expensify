@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "react-expensify-b763a"
+    "default": "react-expensify-b763a",
+    "test": "expensify-test-117eb"
   }
 }
