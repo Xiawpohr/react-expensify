@@ -33,6 +33,27 @@ test('should setup ADD_EXPENSE_START action object', () => {
   })
 })
 
+test('should setup FETCH_EXPENSES_START actio object', () => {
+  expect(actions.fetchExpensesStart()).toEqual({
+    type: types.FETCH_EXPENSES_START
+  })
+})
+
+test('should setup FETCH_EXPENSES_SUCCESS action object', () => {
+  expect(actions.fetchExpensesSuccess(expenses)).toEqual({
+    type: types.FETCH_EXPENSES_SUCCESS,
+    expenses
+  })
+})
+
+test('should setup FETCH_EXPENSE_FAILURE action object', () => {
+  const error = 'There is something wrong'
+  expect(actions.fetchExpensesFailure(error)).toEqual({
+    type: types.FETCH_EXPENSES_FAILURE,
+    error
+  })
+})
+
 test('should setup ADD_EXPENSE_SUCCESS action object', () => {
   const expense = {
     id: '123',
@@ -107,6 +128,14 @@ test('should setup REMOVE_EXPENSE_FAILURE action object', () => {
 })
 
 // async
+test('should handle fetch expenses async action', async () => {
+  const store = mockStore([])
+  await store.dispatch(actions.fetchExpenses())
+  const mockActions = store.getActions()
+  expect(mockActions[0]).toEqual(actions.fetchExpensesStart())
+  expect(mockActions[1]).toEqual(actions.fetchExpensesSuccess(expenses))
+})
+
 test('should handle add expense async action', async () => {
   const expense = {
     description: 'test expense',
@@ -114,7 +143,7 @@ test('should handle add expense async action', async () => {
     createdAt: 2000,
     note: 'test note'
   }
-  const store = mockStore({})
+  const store = mockStore([])
 
   await store.dispatch(actions.addExpense(expense))
   const mockActions = store.getActions()

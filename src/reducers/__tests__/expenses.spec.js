@@ -5,6 +5,18 @@ test('should return the initial state', () => {
   expect(expensesReducer(undefined, { type: '@@INIT' })).toEqual([])
 })
 
+test('should handle fetch expenses action', () => {
+  const expense = {
+    id: '123',
+    description: '',
+    amount: 0,
+    createdAt: 0,
+    note: ''
+  }
+  expect(expensesReducer([], actions.addExpenseSuccess(expense)))
+    .toEqual([expense])
+})
+
 test('should handle add expense action', () => {
   const expense = {
     id: '123',

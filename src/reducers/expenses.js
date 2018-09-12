@@ -4,6 +4,12 @@ const expensesDefaultState = []
 
 export default (state = expensesDefaultState, action) => {
   switch (action.type) {
+    case types.FETCH_EXPENSES_START:
+      return state
+    case types.FETCH_EXPENSES_SUCCESS:
+      return [...action.expenses]
+    case types.FETCH_EXPENSES_FAILURE:
+      return state
     case types.ADD_EXPENSE_START:
       return state
     case types.ADD_EXPENSE_SUCCESS:

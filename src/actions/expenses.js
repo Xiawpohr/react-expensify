@@ -2,6 +2,20 @@ import db from '../firebase/db.js'
 import * as types from './actionTypes.js'
 
 // sync
+export const fetchExpensesStart = () => ({
+  type: types.FETCH_EXPENSES_START
+})
+
+export const fetchExpensesSuccess = (expenses) => ({
+  type: types.FETCH_EXPENSES_SUCCESS,
+  expenses
+})
+
+export const fetchExpensesFailure = (error) => ({
+  type: types.FETCH_EXPENSES_FAILURE,
+  error
+})
+
 export const addExpenseStart = () => ({
   type: types.ADD_EXPENSE_START
 })
@@ -46,6 +60,23 @@ export const removeExpenseFailure = (error) => ({
 })
 
 // async
+export const fetchExpenses = () => {
+  return async (dispatch) => {
+    dispatch(fetchExpensesStart())
+    try {
+      const expensesDocs = await db.collection('expenses').get()
+      const expenses = expensesDocs.docs.map(expense => ({
+        id: expense.id,
+        ...expense.data()
+      }))
+      dispatch(fetchExpensesSuccess(expenses))
+      return expenses
+    } catch (error) {
+      dispatch(fetchExpensesFailure(error))
+    }
+  }
+}
+
 export const addExpense = (expense = {}) => {
   const {
     description = '',
