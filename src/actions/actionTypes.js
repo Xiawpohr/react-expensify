@@ -1,5 +1,7 @@
 // expense actions
-export const ADD_EXPENSE = 'ADD_EXPENSE'
+export const ADD_EXPENSE_START = 'ADD_EXPENSE_START'
+export const ADD_EXPENSE_SUCCESS = 'ADD_EXPENSE_SUCCESS'
+export const ADD_EXPENSE_FAILURE = 'ADD_EXPENSE_FAILURE'
 export const EDIT_EXPENSE = 'EDIT_EXPENSE'
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE'
 

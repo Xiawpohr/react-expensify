@@ -2,20 +2,19 @@ import expensesReducer from '../expenses.js'
 import * as actions from '../../actions/expenses.js'
 
 test('should return the initial state', () => {
-  expect(expensesReducer(undefined, {})).toEqual([])
+  expect(expensesReducer(undefined, { type: '@@INIT' })).toEqual([])
 })
 
 test('should handle add expense action', () => {
-  expect(expensesReducer([], actions.addExpense()))
-    .toEqual([
-      {
-        id: expect.any(String),
-        description: '',
-        amount: 0,
-        createdAt: 0,
-        note: ''
-      }
-    ])
+  const expense = {
+    id: '123',
+    description: '',
+    amount: 0,
+    createdAt: 0,
+    note: ''
+  }
+  expect(expensesReducer([], actions.addExpenseSuccess(expense)))
+    .toEqual([expense])
 })
 
 test('should handle edit expense action', () => {
