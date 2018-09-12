@@ -1,6 +1,7 @@
 import db from '../firebase/db.js'
 import * as types from './actionTypes.js'
 
+// sync
 export const addExpenseStart = () => ({
   type: types.ADD_EXPENSE_START
 })
@@ -15,6 +16,22 @@ export const addExpenseFailure = (error) => ({
   error
 })
 
+export const editExpenseStart = () => ({
+  type: types.EDIT_EXPENSE_START
+})
+
+export const editExpenseSuccess = (id, updates) => ({
+  type: types.EDIT_EXPENSE_SUCCESS,
+  id,
+  updates
+})
+
+export const editExpenseFailure = (error) => ({
+  type: types.EDIT_EXPENSE_FAILURE,
+  error
+})
+
+// async
 export const addExpense = (expense = {}) => {
   const {
     description = '',
@@ -35,15 +52,25 @@ export const addExpense = (expense = {}) => {
       return expenseData
     } catch (error) {
       dispatch(addExpenseFailure(error))
+      return error
     }
   }
 }
 
-export const editExpense = (id, updates) => ({
-  type: types.EDIT_EXPENSE,
-  id,
-  updates
-})
+export const editExpense = (id, updates = {}) => {
+  return async (dispatch) => {
+    dispatch(editExpenseStart())
+    try {
+      const expenseRef = db.collection('expenses').doc(id)
+      await expenseRef.update(updates)
+      dispatch(editExpenseSuccess(id, updates))
+      return (await expenseRef.get()).data()
+    } catch (error) {
+      dispatch(editExpenseFailure(error))
+      return error
+    }
+  }
+}
 
 export const removeExpense = (id) => ({
   type: types.REMOVE_EXPENSE,

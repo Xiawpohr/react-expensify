@@ -10,14 +10,16 @@ export default (state = expensesDefaultState, action) => {
       return [...state, action.expense]
     case types.ADD_EXPENSE_FAILURE:
       return state
-    case types.EDIT_EXPENSE:
+    case types.EDIT_EXPENSE_START:
+      return state
+    case types.EDIT_EXPENSE_SUCCESS:
       return state.map(expense => {
-        if (expense.id === action.id) {
-          return { ...expense, ...action.updates }
-        } else {
-          return expense
-        }
+        return expense.id === action.id
+          ? { ...expense, ...action.updates }
+          : expense
       })
+    case types.EDIT_EXPENSE_FAILURE:
+      return state
     case types.REMOVE_EXPENSE:
       return state.filter(expense => expense.id !== action.id)
     default:

@@ -25,7 +25,7 @@ test('should handle edit expense action', () => {
     createdAt: 8000,
     note: 'the very expensive house'
   }]
-  const state = expensesReducer(expenses, actions.editExpense('1', { amount: 9000 }))
+  const state = expensesReducer(expenses, actions.editExpenseSuccess('1', { amount: 9000 }))
   expect(state).toEqual([
     {
       id: '1',
