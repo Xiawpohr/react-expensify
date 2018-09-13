@@ -7,11 +7,13 @@ import * as actions from '../expenses.js'
 
 // setup
 const mockStore = configureStore([thunk])
+const uid = 'test-user'
+const authStore = { auth: { uid } }
 
 beforeEach(() => {
   const batch = db.batch()
   expenses.forEach(expense => {
-    const ref = db.collection('expenses').doc(expense.id)
+    const ref = db.collection('users').doc(uid).collection('expenses').doc(expense.id)
     batch.set(ref, expense)
   })
   batch.commit()
@@ -19,7 +21,7 @@ beforeEach(() => {
 
 afterEach(async () => {
   const batch = db.batch()
-  const expenseDocs = await db.collection('expenses').get()
+  const expenseDocs = await db.collection('users').doc(uid).collection('expenses').get()
   expenseDocs.forEach(expenseDoc => {
     batch.delete(expenseDoc.ref)
   })
@@ -129,7 +131,7 @@ test('should setup REMOVE_EXPENSE_FAILURE action object', () => {
 
 // async
 test('should handle fetch expenses async action', async () => {
-  const store = mockStore([])
+  const store = mockStore(authStore)
   await store.dispatch(actions.fetchExpenses())
   const mockActions = store.getActions()
   expect(mockActions[0]).toEqual(actions.fetchExpensesStart())
@@ -143,7 +145,7 @@ test('should handle add expense async action', async () => {
     createdAt: 2000,
     note: 'test note'
   }
-  const store = mockStore([])
+  const store = mockStore(authStore)
 
   await store.dispatch(actions.addExpense(expense))
   const mockActions = store.getActions()
@@ -156,7 +158,7 @@ test('should handle add expense async action', async () => {
     }
   })
 
-  const expenseDoc = await db.collection('expenses').doc(mockActions[1].expense.id).get()
+  const expenseDoc = await db.collection('users').doc(uid).collection('expenses').doc(mockActions[1].expense.id).get()
   expect(expenseDoc.data()).toEqual(expense)
 })
 
@@ -167,7 +169,7 @@ test('should handle add expense async action with default value', async () => {
     createdAt: 0,
     note: ''
   }
-  const store = mockStore([])
+  const store = mockStore(authStore)
 
   await store.dispatch(actions.addExpense())
   const mockActions = store.getActions()
@@ -180,7 +182,7 @@ test('should handle add expense async action with default value', async () => {
     }
   })
 
-  const expenseDoc = await db.collection('expenses').doc(mockActions[1].expense.id).get()
+  const expenseDoc = await db.collection('users').doc(uid).collection('expenses').doc(mockActions[1].expense.id).get()
   expect(expenseDoc.data()).toEqual(defaultExpense)
 })
 
@@ -189,7 +191,7 @@ test('should handle edit expense async action', async () => {
   const updates = {
     description: 'updated-description'
   }
-  const store = mockStore([])
+  const store = mockStore(authStore)
 
   const updatedExpense = await store.dispatch(actions.editExpense(id, updates))
   const mockActions = store.getActions()
@@ -200,11 +202,11 @@ test('should handle edit expense async action', async () => {
 
 test('should handle remove expense action object', async () => {
   const id = expenses[1].id
-  const store = mockStore([])
+  const store = mockStore(authStore)
   await store.dispatch(actions.removeExpense(id))
   const mockActions = store.getActions()
   expect(mockActions[0]).toEqual(actions.removeExpenseStart())
   expect(mockActions[1]).toEqual(actions.removeExpenseSuccess(id))
-  const removedExpenseDoc = await db.collection('expenses').doc(id).get()
+  const removedExpenseDoc = await db.collection('users').doc(uid).collection('expenses').doc(id).get()
   expect(removedExpenseDoc.exists).toBe(false)
 })

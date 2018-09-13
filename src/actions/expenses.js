@@ -61,10 +61,11 @@ export const removeExpenseFailure = (error) => ({
 
 // async
 export const fetchExpenses = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const userId = getState().auth.uid
     dispatch(fetchExpensesStart())
     try {
-      const expensesDocs = await db.collection('expenses').get()
+      const expensesDocs = await db.collection('users').doc(userId).collection('expenses').get()
       const expenses = expensesDocs.docs.map(expense => ({
         id: expense.id,
         ...expense.data()
@@ -84,10 +85,11 @@ export const addExpense = (expense = {}) => {
     createdAt = 0,
     note = ''
   } = expense
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const userId = getState().auth.uid
     dispatch(addExpenseStart())
     try {
-      const expenseRef = await db.collection('expenses').add({ description, amount, createdAt, note })
+      const expenseRef = await db.collection('users').doc(userId).collection('expenses').add({ description, amount, createdAt, note })
       const expenseDoc = await expenseRef.get()
       const expenseData = expenseDoc.data()
       dispatch(addExpenseSuccess({
@@ -103,10 +105,11 @@ export const addExpense = (expense = {}) => {
 }
 
 export const editExpense = (id, updates = {}) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const userId = getState().auth.uid
     dispatch(editExpenseStart())
     try {
-      const expenseRef = db.collection('expenses').doc(id)
+      const expenseRef = db.collection('users').doc(userId).collection('expenses').doc(id)
       await expenseRef.update(updates)
       dispatch(editExpenseSuccess(id, updates))
       return (await expenseRef.get()).data()
@@ -118,10 +121,11 @@ export const editExpense = (id, updates = {}) => {
 }
 
 export const removeExpense = (id) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const userId = getState().auth.uid
     dispatch(removeExpenseStart())
     try {
-      await db.collection('expenses').doc(id).delete()
+      await db.collection('users').doc(userId).collection('expenses').doc(id).delete()
       dispatch(removeExpenseSuccess(id))
     } catch (error) {
       dispatch(removeExpenseFailure(error))
