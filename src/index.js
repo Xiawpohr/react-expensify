@@ -11,11 +11,6 @@ import auth from './firebase/auth.js'
 import { loginSuccess, logoutSuccess } from './actions/auth'
 
 ReactDOM.render(<h1>Loading...</h1>, document.getElementById('root'))
-store.dispatch(fetchExpenses()).then(() => {
-  ReactDOM.render(<App />, document.getElementById('root'))
-})
-
-registerServiceWorker()
 
 auth.onAuthStateChanged((user) => {
   if (user) {
@@ -24,7 +19,12 @@ auth.onAuthStateChanged((user) => {
       name: user.displayName,
       email: user.email
     }))
+    store.dispatch(fetchExpenses()).then(() => {
+      ReactDOM.render(<App />, document.getElementById('root'))
+    })
   } else {
     store.dispatch(logoutSuccess())
   }
 })
+
+registerServiceWorker()
