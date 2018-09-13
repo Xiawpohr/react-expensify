@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import AppRouter from './components/AppRouter.js'
+import AppRouter from './routers/AppRouter.js'
 import configureStore from './configureStore.js'
 
 export const store = configureStore()

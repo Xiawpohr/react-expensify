@@ -8,6 +8,7 @@ import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 import { fetchExpenses } from './actions/expenses'
 import auth from './firebase/auth.js'
+import { loginSuccess, logoutSuccess } from './actions/auth'
 
 ReactDOM.render(<h1>Loading...</h1>, document.getElementById('root'))
 store.dispatch(fetchExpenses()).then(() => {
@@ -18,8 +19,12 @@ registerServiceWorker()
 
 auth.onAuthStateChanged((user) => {
   if (user) {
-    console.log('log in')
+    store.dispatch(loginSuccess({
+      uid: user.uid,
+      name: user.displayName,
+      email: user.email
+    }))
   } else {
-    console.log('log out')
+    store.dispatch(logoutSuccess())
   }
 })
