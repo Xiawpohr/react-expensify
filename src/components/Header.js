@@ -12,7 +12,7 @@ import LogoText from '../styles/LogoText.js'
 export const Header = (props) => (
   <BackgroundColor as='header' color={props.theme.colors.darkBlue}>
     <Container>
-      <Flex justifyContent='space-between' alignItems='center' >
+      <Flex py={2} justifyContent='space-between' alignItems='center' >
         <LogoText as={Link} to='/dashboard' >
           <h1>Expensify</h1>
         </LogoText>

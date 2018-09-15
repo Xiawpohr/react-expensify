@@ -3,8 +3,9 @@ export default () => ({
     darkGrey: '#333',
     grey: '#666',
     lightGrey: '#888',
-    blue: '#1c88bf',
     darkBlue: '#364051',
+    blue: '#1c88bf',
+    darkOffWhite: '#f0f0f0',
     offWhite: '#f7f7f7'
   },
   fontSizes: {
@@ -20,7 +21,5 @@ export default () => ({
     lg: '3.2rem',
     xl: '4.8rem'
   },
-  breakpoints: {
-    desktop: '45rem'
-  }
+  breakpoints: ['45rem']
 })

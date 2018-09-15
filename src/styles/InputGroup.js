@@ -4,7 +4,7 @@ const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: ${props => props.theme.spacing.md};
-  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+  @media (min-width: ${props => props.theme.breakpoints[0]}) {
     flex-direction: row;
     margin-bottom: ${props => props.theme.spacing.lg};
   }

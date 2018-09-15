@@ -12,7 +12,9 @@ const GlobalStyle = createGlobalStyle`${props => css`
   body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
   }
 
   .active-link {
