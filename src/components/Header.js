@@ -1,20 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { withTheme } from 'styled-components'
 import { logout } from '../actions/auth.js'
+import BackgroundColor from '../styles/BackgroundColor.js'
+import Container from '../styles/Container.js'
+import Flex from '../styles/Flex.js'
+import Button from '../styles/Button.js'
+import LogoText from '../styles/LogoText.js'
 
 export const Header = (props) => (
-  <header>
-    <h1>Expensify APP</h1>
-    <NavLink to='/dashboard' activeClassName='active-link' exact>DashBoard</NavLink>
-    <NavLink to='/create' activeClassName='active-link' >Create Expense</NavLink>
-    <NavLink to='/help' activeClassName='active-link' >Help</NavLink>
-    <button onClick={props.logout} >Log Out</button>
-  </header>
+  <BackgroundColor as='header' color={props.theme.colors.darkBlue}>
+    <Container>
+      <Flex justifyContent='space-between' alignItems='center' >
+        <LogoText as={Link} to='/dashboard' >
+          <h1>Expensify</h1>
+        </LogoText>
+        <Button link onClick={props.logout} >Log Out</Button>
+      </Flex>
+    </Container>
+  </BackgroundColor>
 )
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout())
 })
 
-export default connect(undefined, mapDispatchToProps)(Header)
+export default withTheme(connect(undefined, mapDispatchToProps)(Header))
