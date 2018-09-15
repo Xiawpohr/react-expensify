@@ -2,10 +2,22 @@
 
 exports[`should render Login Page correctly 1`] = `
 <div>
-  <button
-    onClick={[Function]}
+  <ForwardRef
+    url="bg.jpg"
   >
-    Login
-  </button>
+    <ForwardRef>
+      <ForwardRef>
+        Expensify
+      </ForwardRef>
+      <p>
+        It's time to get your expenses under control.
+      </p>
+      <ForwardRef
+        onClick={[Function]}
+      >
+        Login With Google
+      </ForwardRef>
+    </ForwardRef>
+  </ForwardRef>
 </div>
 `;

@@ -2,17 +2,19 @@
 
 exports[`should render ExpenseForm correctly 1`] = `
 <div>
-  <form
+  <ForwardRef
     onSubmit={[Function]}
   >
-    <input
+    <ForwardRef
       autoFocus={true}
+      height={50}
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value=""
     />
-    <input
+    <ForwardRef
+      height={50}
       onChange={[Function]}
       placeholder="Amount"
       type="text"
@@ -107,30 +109,36 @@ exports[`should render ExpenseForm correctly 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textarea
+    <ForwardRef
+      as="textarea"
+      height={100}
       onChange={[Function]}
       value=""
     />
-    <button>
-      Add Expense
-    </button>
-  </form>
+    <div>
+      <ForwardRef>
+        Save Expense
+      </ForwardRef>
+    </div>
+  </ForwardRef>
 </div>
 `;
 
 exports[`should render ExpenseForm with expense data 1`] = `
 <div>
-  <form
+  <ForwardRef
     onSubmit={[Function]}
   >
-    <input
+    <ForwardRef
       autoFocus={true}
+      height={50}
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value="bill"
     />
-    <input
+    <ForwardRef
+      height={50}
       onChange={[Function]}
       placeholder="Amount"
       type="text"
@@ -225,14 +233,18 @@ exports[`should render ExpenseForm with expense data 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textarea
+    <ForwardRef
+      as="textarea"
+      height={100}
       onChange={[Function]}
       value=""
     />
-    <button>
-      Add Expense
-    </button>
-  </form>
+    <div>
+      <ForwardRef>
+        Save Expense
+      </ForwardRef>
+    </div>
+  </ForwardRef>
 </div>
 `;
 
