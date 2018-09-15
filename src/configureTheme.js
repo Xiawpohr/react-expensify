@@ -10,6 +10,9 @@ export default () => ({
     large: '1.8rem',
     small: '1.4rem'
   },
+  space: [
+    '0.8rem', '1.2rem', '1.6rem', '3.2rem', '4.8rem'
+  ],
   spacing: {
     sm: '1.2rem',
     md: '1.6rem',
