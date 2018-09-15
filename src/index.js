@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'react-dates/initialize'
-import 'react-dates/lib/css/_datepicker.css'
 import registerServiceWorker from './registerServiceWorker'
 import App, { store } from './App.js'
-import './firebase/init.js'
 import auth from './firebase/auth.js'
 import { fetchExpenses } from './actions/expenses'
 import { loginSuccess, logoutSuccess } from './actions/auth'
+import 'react-dates/initialize'
+import './firebase/init.js'
+import 'normalize.css/normalize.css'
+import 'react-dates/lib/css/_datepicker.css'
 
 let hasRendered = false
 const renderApp = () => {
