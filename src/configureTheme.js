@@ -2,6 +2,7 @@ export default () => ({
   colors: {
     darkGrey: '#333',
     grey: '#666',
+    lightGrey: '#888',
     blue: '#1c88bf',
     darkBlue: '#364051',
     offWhite: '#f7f7f7'
