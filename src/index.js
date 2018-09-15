@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import registerServiceWorker from './registerServiceWorker'
-import App, { store } from './App.js'
 import auth from './firebase/auth.js'
 import { fetchExpenses } from './actions/expenses'
 import { loginSuccess, logoutSuccess } from './actions/auth'
+import App, { store } from './App.js'
+import LoadingPage from './components/LoadingPage.js'
 import 'react-dates/initialize'
 import './firebase/init.js'
 import 'normalize.css/normalize.css'
@@ -20,7 +21,7 @@ const renderApp = () => {
   }
 }
 
-ReactDOM.render(<h1>Loading...</h1>, document.getElementById('root'))
+ReactDOM.render(<LoadingPage />, document.getElementById('root'))
 
 auth.onAuthStateChanged((user) => {
   if (user) {
