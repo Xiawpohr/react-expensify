@@ -11,16 +11,14 @@ import NotFoundPage from '../components/NotFoundPage.js'
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div>
-      <Switch>
-        <PublicRoute path='/' component={LoginPage} exact />
-        <PrivateRoute path='/dashboard' component={DashboardPage} />
-        <PrivateRoute path='/create' component={CreatePage} />
-        <PrivateRoute path='/edit/:id' component={EditPage} />
-        <Route path='/help' component={HelpPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <Switch>
+      <PublicRoute path='/' component={LoginPage} exact />
+      <PrivateRoute path='/dashboard' component={DashboardPage} />
+      <PrivateRoute path='/create' component={CreatePage} />
+      <PrivateRoute path='/edit/:id' component={EditPage} />
+      <Route path='/help' component={HelpPage} />
+      <Route component={NotFoundPage} />
+    </Switch>
   </BrowserRouter>
 )
 
