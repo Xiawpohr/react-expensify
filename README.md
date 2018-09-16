@@ -12,3 +12,4 @@ This project is for learning React and Redux. And it is a second project in the 
 ## Enhancement
 * I use Create-React-app to bootstrape this project
 * I deploy to Firebase instead of Heroku
+* I use css-in-js to style the components
