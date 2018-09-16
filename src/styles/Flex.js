@@ -10,4 +10,6 @@ const Flex = styled.div`${props => css`
   ${space}
 `}`
 
+Flex.displayName = 'Flex'
+
 export default Flex

@@ -10,6 +10,7 @@ import 'react-dates/initialize'
 import './firebase/init.js'
 import 'normalize.css/normalize.css'
 import 'react-dates/lib/css/_datepicker.css'
+import './injectGlobalStyle.js'
 
 let hasRendered = false
 const renderApp = () => {

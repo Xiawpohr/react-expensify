@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseListItem correctly 1`] = `
-<ForwardRef
+<ListItem
   as={[Function]}
   to="/edit/123"
 >
   <div>
-    <ForwardRef
+    <ListItemTitle
       as="h3"
     >
       test expense
-    </ForwardRef>
-    <ForwardRef>
+    </ListItemTitle>
+    <ListItemSubtitle>
       January 1st, 1970
-    </ForwardRef>
+    </ListItemSubtitle>
   </div>
-  <ForwardRef
+  <ListItemData
     as="h3"
   >
     $0.00
-  </ForwardRef>
-</ForwardRef>
+  </ListItemData>
+</ListItem>
 `;

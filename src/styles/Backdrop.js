@@ -9,5 +9,6 @@ const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
 `
+Backdrop.displayName = 'Backdrop'
 
 export default Backdrop

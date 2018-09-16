@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { EditPage } from '../EditPage.js'
 import moment from '../__mocks__/moment.js'
 
-let wrapper, editExpense, removeExpense, history, expense, id
+let theme, wrapper, editExpense, removeExpense, history, expense, id
 
 beforeEach(() => {
   id = 'abc'
@@ -13,6 +13,9 @@ beforeEach(() => {
     createdAt: moment(0).valueOf(),
     note: ''
   }
+  theme = {
+    colors: { offWhite: '#f7f7f7' }
+  }
   editExpense = jest.fn()
   removeExpense = jest.fn()
   history = { push: jest.fn() }
@@ -20,6 +23,7 @@ beforeEach(() => {
     <EditPage
       {...expense}
       id={id}
+      theme={theme}
       editExpense={editExpense}
       removeExpense={removeExpense}
       history={history}
@@ -38,7 +42,7 @@ test('should handle editExpense action', () => {
 })
 
 test('should handle removeExpense action', () => {
-  wrapper.find('button').simulate('click')
+  wrapper.find('Button').simulate('click')
   expect(removeExpense).toHaveBeenCalledWith(id)
   expect(history.push).toHaveBeenLastCalledWith('/')
 })

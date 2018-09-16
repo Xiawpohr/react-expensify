@@ -48,19 +48,19 @@ test('should render ExpenseListFilter with alt date correctly', () => {
 
 test('should handle set text filter action', () => {
   const value = 'bill'
-  wrapper.find('input').simulate('change', { target: { value } })
+  wrapper.find('TextInput').simulate('change', { target: { value } })
   expect(setTextFilter).toHaveBeenLastCalledWith(value)
 })
 
 test('should handle sort by date action', () => {
   const value = 'date'
-  wrapper.find('select').simulate('change', { target: { value } })
+  wrapper.find('Select').simulate('change', { target: { value } })
   expect(sortByDate).toHaveBeenCalledTimes(1)
 })
 
 test('should handle sort by amount action', () => {
   const value = 'amount'
-  wrapper.find('select').simulate('change', { target: { value } })
+  wrapper.find('Select').simulate('change', { target: { value } })
   expect(sortByAmount).toHaveBeenCalledTimes(1)
 })
 

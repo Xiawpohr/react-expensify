@@ -1,21 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseListFilter correctly 1`] = `
-<ForwardRef>
-  <ForwardRef>
-    <ForwardRef>
-      <ForwardRef
+<Container>
+  <InputGroup>
+    <InputGroupItem>
+      <TextInput
         height={50}
         onChange={[Function]}
         placeholder="Search Expenses"
         type="text"
         value=""
       />
-    </ForwardRef>
-    <ForwardRef>
-      <ForwardRef
-        as="select"
-        height={50}
+    </InputGroupItem>
+    <InputGroupItem>
+      <Select
         onChange={[Function]}
         value="date"
       >
@@ -29,9 +27,9 @@ exports[`should render ExpenseListFilter correctly 1`] = `
         >
           Amount
         </option>
-      </ForwardRef>
-    </ForwardRef>
-    <ForwardRef>
+      </Select>
+    </InputGroupItem>
+    <InputGroupItem>
       <withStyles(DateRangePicker)
         anchorDirection="left"
         appendToBody={false}
@@ -127,27 +125,25 @@ exports[`should render ExpenseListFilter correctly 1`] = `
         withFullScreenPortal={false}
         withPortal={false}
       />
-    </ForwardRef>
-  </ForwardRef>
-</ForwardRef>
+    </InputGroupItem>
+  </InputGroup>
+</Container>
 `;
 
 exports[`should render ExpenseListFilter with alt date correctly 1`] = `
-<ForwardRef>
-  <ForwardRef>
-    <ForwardRef>
-      <ForwardRef
+<Container>
+  <InputGroup>
+    <InputGroupItem>
+      <TextInput
         height={50}
         onChange={[Function]}
         placeholder="Search Expenses"
         type="text"
         value="bill"
       />
-    </ForwardRef>
-    <ForwardRef>
-      <ForwardRef
-        as="select"
-        height={50}
+    </InputGroupItem>
+    <InputGroupItem>
+      <Select
         onChange={[Function]}
         value="date"
       >
@@ -161,9 +157,9 @@ exports[`should render ExpenseListFilter with alt date correctly 1`] = `
         >
           Amount
         </option>
-      </ForwardRef>
-    </ForwardRef>
-    <ForwardRef>
+      </Select>
+    </InputGroupItem>
+    <InputGroupItem>
       <withStyles(DateRangePicker)
         anchorDirection="left"
         appendToBody={false}
@@ -259,7 +255,7 @@ exports[`should render ExpenseListFilter with alt date correctly 1`] = `
         withFullScreenPortal={false}
         withPortal={false}
       />
-    </ForwardRef>
-  </ForwardRef>
-</ForwardRef>
+    </InputGroupItem>
+  </InputGroup>
+</Container>
 `;

@@ -7,4 +7,6 @@ const InputGroupItem = styled.div`
   }
 `
 
+InputGroupItem.displayName = 'InputGroupItem'
+
 export default InputGroupItem

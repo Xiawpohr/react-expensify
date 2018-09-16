@@ -2,11 +2,14 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { Header } from '../Header.js'
 
-let logout, wrapper
+let theme, logout, wrapper
 
 beforeEach(() => {
+  theme = {
+    colors: { darkBlue: '#364051' }
+  }
   logout = jest.fn()
-  wrapper = shallow(<Header logout={logout} />)
+  wrapper = shallow(<Header theme={theme} logout={logout} />)
 })
 
 test('should render Header correctly', () => {
@@ -14,6 +17,6 @@ test('should render Header correctly', () => {
 })
 
 test('should handle logout on button click event', () => {
-  wrapper.find('button').simulate('click')
+  wrapper.find('Button').simulate('click')
   expect(logout).toHaveBeenCalledTimes(1)
 })

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { space } from 'styled-system'
+import { Link } from 'react-router-dom'
 
 const backgroundColor = props => {
   if (props.secondary) {
@@ -11,7 +12,7 @@ const backgroundColor = props => {
   }
 }
 
-const Button = styled.button`
+const ButtonLink = styled(Link)`
   ${space}
   display: inline-block;
   border: none;
@@ -25,6 +26,6 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-Button.displayName = 'Button'
+ButtonLink.displayName = 'ButtonLink'
 
-export default Button
+export default ButtonLink

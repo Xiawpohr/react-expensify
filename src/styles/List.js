@@ -8,6 +8,7 @@ export const ListHeader = styled.div`
   background: ${props => props.theme.colors.offWhite};
   color: ${props => props.theme.colors.grey};
 `
+ListHeader.displayName = 'ListHeader'
 
 export const ListBody = styled.div`
   margin-bottom: ${props => props.theme.spacing.md};
@@ -15,6 +16,7 @@ export const ListBody = styled.div`
     margin-bottom: ${props => props.theme.spacing.lg};
   }
 `
+ListBody.displayName = 'ListBody'
 
 export const ListItem = styled.div`
   border: 1px solid ${props => props.theme.colors.darkOffWhite};
@@ -37,16 +39,19 @@ export const ListItem = styled.div`
     padding: ${props => props.theme.spacing.md};
   }
 `
+ListItem.displayName = 'ListItem'
 
 export const ListItemTitle = styled.div`
   margin: 0;
   word-break: break-all;
 `
+ListItemTitle.displayName = 'ListItemTitle'
 
 export const ListItemSubtitle = styled.div`
   color: ${props => props.theme.colors.grey};
   font-size: ${props => props.theme.fontSizes.small};
 `
+ListItemSubtitle.displayName = 'ListItemSubtitle'
 
 export const ListItemData = styled.div`
   margin: ${props => props.theme.spacing.sm} 0 0 0;
@@ -55,3 +60,4 @@ export const ListItemData = styled.div`
     padding-left: ${props => props.theme.spacing.sm};
   }
 `
+ListItemData.displayName = 'ListItemData'

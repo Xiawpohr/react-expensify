@@ -2,10 +2,10 @@
 
 exports[`should render ExpenseForm correctly 1`] = `
 <div>
-  <ForwardRef
+  <Form
     onSubmit={[Function]}
   >
-    <ForwardRef
+    <TextInput
       autoFocus={true}
       height={50}
       onChange={[Function]}
@@ -13,7 +13,7 @@ exports[`should render ExpenseForm correctly 1`] = `
       type="text"
       value=""
     />
-    <ForwardRef
+    <TextInput
       height={50}
       onChange={[Function]}
       placeholder="Amount"
@@ -109,27 +109,26 @@ exports[`should render ExpenseForm correctly 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <ForwardRef
-      as="textarea"
+    <Textarea
       height={100}
       onChange={[Function]}
       value=""
     />
     <div>
-      <ForwardRef>
+      <Button>
         Save Expense
-      </ForwardRef>
+      </Button>
     </div>
-  </ForwardRef>
+  </Form>
 </div>
 `;
 
 exports[`should render ExpenseForm with expense data 1`] = `
 <div>
-  <ForwardRef
+  <Form
     onSubmit={[Function]}
   >
-    <ForwardRef
+    <TextInput
       autoFocus={true}
       height={50}
       onChange={[Function]}
@@ -137,7 +136,7 @@ exports[`should render ExpenseForm with expense data 1`] = `
       type="text"
       value="bill"
     />
-    <ForwardRef
+    <TextInput
       height={50}
       onChange={[Function]}
       placeholder="Amount"
@@ -233,37 +232,38 @@ exports[`should render ExpenseForm with expense data 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <ForwardRef
-      as="textarea"
+    <Textarea
       height={100}
       onChange={[Function]}
       value=""
     />
     <div>
-      <ForwardRef>
+      <Button>
         Save Expense
-      </ForwardRef>
+      </Button>
     </div>
-  </ForwardRef>
+  </Form>
 </div>
 `;
 
 exports[`should render error for invalid form submission 1`] = `
 <div>
-  <p>
-    Please provide description and amount.
-  </p>
-  <form
+  <Form
     onSubmit={[Function]}
   >
-    <input
+    <p>
+      Please provide description and amount.
+    </p>
+    <TextInput
       autoFocus={true}
+      height={50}
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value=""
     />
-    <input
+    <TextInput
+      height={50}
       onChange={[Function]}
       placeholder="Amount"
       type="text"
@@ -358,13 +358,16 @@ exports[`should render error for invalid form submission 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <textarea
+    <Textarea
+      height={100}
       onChange={[Function]}
       value=""
     />
-    <button>
-      Add Expense
-    </button>
-  </form>
+    <div>
+      <Button>
+        Save Expense
+      </Button>
+    </div>
+  </Form>
 </div>
 `;

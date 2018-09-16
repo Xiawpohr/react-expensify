@@ -1,13 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { withTheme } from 'styled-components'
 import numeral from 'numeral'
 import getVisibleExpenses from '../selectors/getVisibleExpenses.js'
 import getExpensesTotal from '../selectors/getExpensesTotal.js'
 import BackgroundColor from '../styles/BackgroundColor.js'
 import Container from '../styles/Container.js'
-import Button from '../styles/Button.js'
+import ButtonLink from '../styles/ButtonLink.js'
 import SummaryText from '../styles/SummaryText.js'
 
 export const ExpenseSummary = (props) => {
@@ -19,7 +18,7 @@ export const ExpenseSummary = (props) => {
         <SummaryText>
           Viewing <strong>{props.count}</strong> {expenseWord} totalling <strong>{formattedTotal}</strong>
         </SummaryText>
-        <Button mt={3} as={Link} to='/create'>Add Expense</Button>
+        <ButtonLink mt={3} to='/create'>Add Expense</ButtonLink>
       </Container>
     </BackgroundColor>
   )

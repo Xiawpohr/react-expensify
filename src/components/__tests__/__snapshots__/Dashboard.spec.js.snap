@@ -2,7 +2,7 @@
 
 exports[`should render Dashboard page correctly 1`] = `
 <div>
-  <ForwardRef />
+  <WithTheme(Connect(Component)) />
   <Connect(ExpenseListFilter) />
   <Connect(Component) />
 </div>

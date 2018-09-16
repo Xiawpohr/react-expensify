@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseList with expenses correctly 1`] = `
-<ForwardRef>
-  <ForwardRef>
-    <ForwardRef
+<Container>
+  <ListHeader>
+    <Text
       display={
         Array [
           "block",
@@ -12,8 +12,8 @@ exports[`should render ExpenseList with expenses correctly 1`] = `
       }
     >
       Expenses
-    </ForwardRef>
-    <ForwardRef
+    </Text>
+    <Text
       display={
         Array [
           "none",
@@ -22,8 +22,8 @@ exports[`should render ExpenseList with expenses correctly 1`] = `
       }
     >
       Expense
-    </ForwardRef>
-    <ForwardRef
+    </Text>
+    <Text
       display={
         Array [
           "none",
@@ -32,9 +32,9 @@ exports[`should render ExpenseList with expenses correctly 1`] = `
       }
     >
       Amount
-    </ForwardRef>
-  </ForwardRef>
-  <ForwardRef>
+    </Text>
+  </ListHeader>
+  <ListBody>
     <ExpenseListItem
       amount={100}
       createdAt={2000}
@@ -56,14 +56,14 @@ exports[`should render ExpenseList with expenses correctly 1`] = `
       id="3"
       key="3"
     />
-  </ForwardRef>
-</ForwardRef>
+  </ListBody>
+</Container>
 `;
 
 exports[`should render ExpenseList without expenses 1`] = `
-<ForwardRef>
-  <ForwardRef>
-    <ForwardRef
+<Container>
+  <ListHeader>
+    <Text
       display={
         Array [
           "block",
@@ -72,8 +72,8 @@ exports[`should render ExpenseList without expenses 1`] = `
       }
     >
       Expenses
-    </ForwardRef>
-    <ForwardRef
+    </Text>
+    <Text
       display={
         Array [
           "none",
@@ -82,8 +82,8 @@ exports[`should render ExpenseList without expenses 1`] = `
       }
     >
       Expense
-    </ForwardRef>
-    <ForwardRef
+    </Text>
+    <Text
       display={
         Array [
           "none",
@@ -92,18 +92,18 @@ exports[`should render ExpenseList without expenses 1`] = `
       }
     >
       Amount
-    </ForwardRef>
-  </ForwardRef>
-  <ForwardRef>
+    </Text>
+  </ListHeader>
+  <ListBody>
     <ExpenseListItem />
-  </ForwardRef>
-</ForwardRef>
+  </ListBody>
+</Container>
 `;
 
 exports[`should render ExpenseList without expenses props 1`] = `
-<ForwardRef>
-  <ForwardRef>
-    <ForwardRef
+<Container>
+  <ListHeader>
+    <Text
       display={
         Array [
           "block",
@@ -112,8 +112,8 @@ exports[`should render ExpenseList without expenses props 1`] = `
       }
     >
       Expenses
-    </ForwardRef>
-    <ForwardRef
+    </Text>
+    <Text
       display={
         Array [
           "none",
@@ -122,8 +122,8 @@ exports[`should render ExpenseList without expenses props 1`] = `
       }
     >
       Expense
-    </ForwardRef>
-    <ForwardRef
+    </Text>
+    <Text
       display={
         Array [
           "none",
@@ -132,10 +132,10 @@ exports[`should render ExpenseList without expenses props 1`] = `
       }
     >
       Amount
-    </ForwardRef>
-  </ForwardRef>
-  <ForwardRef>
+    </Text>
+  </ListHeader>
+  <ListBody>
     <ExpenseListItem />
-  </ForwardRef>
-</ForwardRef>
+  </ListBody>
+</Container>
 `;

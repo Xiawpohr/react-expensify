@@ -3,12 +3,15 @@ import { shallow } from 'enzyme'
 import { CreatePage } from '../CreatePage.js'
 import moment from '../__mocks__/moment.js'
 
-let addExpense, history, wrapper
+let theme, addExpense, history, wrapper
 
 beforeEach(() => {
+  theme = {
+    colors: { offWhite: '#f7f7f7' }
+  }
   addExpense = jest.fn()
   history = { push: jest.fn() }
-  wrapper = shallow(<CreatePage addExpense={addExpense} history={history} />)
+  wrapper = shallow(<CreatePage theme={theme} addExpense={addExpense} history={history} />)
 })
 
 test('should render Create Page correctly', () => {

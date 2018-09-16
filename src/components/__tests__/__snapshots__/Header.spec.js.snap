@@ -1,3 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Header correctly 1`] = `undefined`;
+exports[`should render Header correctly 1`] = `
+<HeaderBackground
+  color="#364051"
+>
+  <Container>
+    <Flex
+      alignItems="center"
+      justifyContent="space-between"
+      py={2}
+    >
+      <LogoLink
+        to="/dashboard"
+      >
+        <h1>
+          Expensify
+        </h1>
+      </LogoLink>
+      <Button
+        link={true}
+        onClick={[Function]}
+      >
+        Log Out
+      </Button>
+    </Flex>
+  </Container>
+</HeaderBackground>
+`;

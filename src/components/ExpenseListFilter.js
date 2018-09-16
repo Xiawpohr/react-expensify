@@ -6,6 +6,7 @@ import Container from '../styles/Container.js'
 import InputGroup from '../styles/InputGroup.js'
 import InputGroupItem from '../styles/InputGroupItem.js'
 import TextInput from '../styles/TextInput.js'
+import Select from '../styles/Select.js'
 
 export class ExpenseListFilter extends React.Component {
   constructor (props) {
@@ -55,14 +56,13 @@ export class ExpenseListFilter extends React.Component {
             />
           </InputGroupItem>
           <InputGroupItem>
-            <TextInput
-              as='select'
+            <Select
               value={this.props.sortBy}
               onChange={this.onSortByChange}
             >
               <option value='date' >Date</option>
               <option value='amount'>Amount</option>
-            </TextInput>
+            </Select>
           </InputGroupItem>
           <InputGroupItem>
             <DateRangePicker

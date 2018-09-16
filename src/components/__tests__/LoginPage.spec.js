@@ -14,6 +14,6 @@ test('should render Login Page correctly', () => {
 })
 
 test('should handle login on click evenet', () => {
-  wrapper.find('button').simulate('click')
+  wrapper.find('Button').simulate('click')
   expect(login).toHaveBeenCalledTimes(1)
 })

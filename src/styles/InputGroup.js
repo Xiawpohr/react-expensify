@@ -10,4 +10,6 @@ const InputGroup = styled.div`
   }
 `
 
+InputGroup.displayName = 'InputGroup'
+
 export default InputGroup

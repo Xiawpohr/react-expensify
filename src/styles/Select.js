@@ -1,16 +1,12 @@
 import styled from 'styled-components'
-import { height } from 'styled-system'
 
-const TextInput = styled.input`
-  ${height}
+const Select = styled.select`
+  height: 50;
   border: 1px solid #cacccd;
   font-size: ${props => props.theme.fontSizes.large};
   font-weight: 300;
   padding: ${props => props.theme.spacing.sm};
 `
-TextInput.displayName = 'TextInput'
-TextInput.defaultProps = {
-  height: 50
-}
+Select.displayName = 'Select'
 
-export default TextInput
+export default Select

@@ -1,6 +1,6 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { injectGlobal } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`${props => css`
+injectGlobal`
   * {
     box-sizing: border-box;
   }
@@ -20,6 +20,4 @@ const GlobalStyle = createGlobalStyle`${props => css`
   .active-link {
     font-weight: bold;
   }
-`}`
-
-export default GlobalStyle
+`

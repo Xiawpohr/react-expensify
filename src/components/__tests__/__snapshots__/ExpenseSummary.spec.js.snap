@@ -1,27 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should correctly render Expenses Summary with multiple expenses 1`] = `
-<div>
-  <h2>
-    Viewing 
-    10
-     
-    expenses
-     totalling 
-    $123.46
-  </h2>
-</div>
+<BackgroundColor
+  color="#f7f7f7"
+>
+  <Container
+    mb={3}
+    py={3}
+  >
+    <SummaryText>
+      Viewing 
+      <strong>
+        10
+      </strong>
+       
+      expenses
+       totalling 
+      <strong>
+        $123.46
+      </strong>
+    </SummaryText>
+    <ButtonLink
+      mt={3}
+      to="/create"
+    >
+      Add Expense
+    </ButtonLink>
+  </Container>
+</BackgroundColor>
 `;
 
 exports[`should correctly render Expenses Summary without expenses 1`] = `
-<div>
-  <h2>
-    Viewing 
-    1
-     
-    expense
-     totalling 
-    $1.23
-  </h2>
-</div>
+<BackgroundColor
+  color="#f7f7f7"
+>
+  <Container
+    mb={3}
+    py={3}
+  >
+    <SummaryText>
+      Viewing 
+      <strong>
+        1
+      </strong>
+       
+      expense
+       totalling 
+      <strong>
+        $1.23
+      </strong>
+    </SummaryText>
+    <ButtonLink
+      mt={3}
+      to="/create"
+    >
+      Add Expense
+    </ButtonLink>
+  </Container>
+</BackgroundColor>
 `;

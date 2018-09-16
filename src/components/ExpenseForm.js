@@ -3,6 +3,7 @@ import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 import Form from '../styles/Form.js'
 import TextInput from '../styles/TextInput.js'
+import Textarea from '../styles/Textarea.js'
 import Button from '../styles/Button.js'
 
 class ExpenseForm extends React.Component {
@@ -90,8 +91,7 @@ class ExpenseForm extends React.Component {
             numberOfMonths={1}
             isOutsideRange={() => false}
           />
-          <TextInput
-            as='textarea'
+          <Textarea
             height={100}
             value={this.state.note}
             onChange={this.onNoteChange}

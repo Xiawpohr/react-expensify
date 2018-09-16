@@ -7,5 +7,6 @@ const Text = styled.div`
   ${color}
   ${display}
 `
+Text.displayName = 'Text'
 
 export default Text

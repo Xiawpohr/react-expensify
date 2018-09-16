@@ -8,9 +8,13 @@ const Card = styled.div`
   text-align: center;
 `
 
+Card.displayName = 'Card'
+
 export const CardTitle = styled.h1`${props => css`
   margin: 0 0 ${props.theme.spacing.md} 0;
   line-height: 1;
 `}`
+
+CardTitle.displayName = 'CardTitle'
 
 export default Card

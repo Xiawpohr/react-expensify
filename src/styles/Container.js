@@ -9,4 +9,6 @@ const Container = styled.div`
   ${space}
 `
 
+Container.displayName = 'Container'
+
 export default Container
