@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import moment from 'moment'
 import numeral from 'numeral'
-import { ListItem, ListItemTitle, ListItemSubtitle, ListItemData } from '../styles/List.js'
+import { ListItem, ListItemTitle, ListItemSubtitle, ListItemData, ListItemMessenge } from '../styles/List.js'
 
 const ExpenseListItem = ({
   id,
@@ -11,7 +10,7 @@ const ExpenseListItem = ({
   createdAt
 }) => {
   return id ? (
-    <ListItem as={Link} to={`/edit/${id}`}>
+    <ListItem to={`/edit/${id}`}>
       <div>
         <ListItemTitle as='h3'>{description}</ListItemTitle>
         <ListItemSubtitle>{moment(createdAt).format('MMMM Do, YYYY')}</ListItemSubtitle>
@@ -19,9 +18,9 @@ const ExpenseListItem = ({
       <ListItemData as='h3'>{numeral(amount / 100).format('$0,0.00')}</ListItemData>
     </ListItem>
   ) : (
-    <ListItem message >
+    <ListItemMessenge >
       <span>No expenses</span>
-    </ListItem>
+    </ListItemMessenge>
   )
 }
 

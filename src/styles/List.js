@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const ListHeader = styled.div`
   padding: ${props => `${props.theme.spacing.sm} ${props.theme.spacing.md}`};
@@ -18,28 +19,46 @@ export const ListBody = styled.div`
 `
 ListBody.displayName = 'ListBody'
 
-export const ListItem = styled.div`
+export const ListItem = styled(Link)`
   border: 1px solid ${props => props.theme.colors.darkOffWhite};
   border-top: none;
-  color: ${props => props.message ? props.theme.colors.grey : props.theme.colors.darkGrey};
+  color: ${props => props.theme.colors.darkGrey};
   display: flex;
-  justify-content: ${props => props.message && 'center'};
-  align-items: ${props => props.message && 'center'};
   flex-direction: column;
-  padding: ${props => props.message ? props.theme.spacing.md : props.theme.spacing.sm};
+  padding: ${props => props.theme.spacing.sm};
   text-decoration: none;
+  cursor: pointer;
   transition: background .3s ease;
   &:hover {
-    background: ${props => props.message ? 'none' : props.theme.colors.offWhite};
+    background: ${props => props.theme.colors.offWhite};
   }
   @media (min-width: ${props => props.theme.breakpoints[0]}) {
     align-items: center;
     flex-direction: row;
-    justify-content: ${props => props.message ? 'center' : 'space-between'};
+    justify-content: space-between;
     padding: ${props => props.theme.spacing.md};
   }
 `
 ListItem.displayName = 'ListItem'
+
+export const ListItemMessenge = styled.div`
+  border: 1px solid ${props => props.theme.colors.darkOffWhite};
+  border-top: none;
+  color: ${props => props.theme.colors.grey};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: ${props => props.theme.spacing.md};
+  text-decoration: none;
+  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding: ${props => props.theme.spacing.md};
+  }
+`
+ListItemMessenge.displayName = 'ListItemMessenge'
 
 export const ListItemTitle = styled.div`
   margin: 0;
