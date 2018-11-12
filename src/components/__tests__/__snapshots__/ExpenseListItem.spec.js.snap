@@ -2,7 +2,6 @@
 
 exports[`should render ExpenseListItem correctly 1`] = `
 <ListItem
-  as={[Function]}
   to="/edit/123"
 >
   <div>

@@ -110,8 +110,8 @@ exports[`should render ExpenseForm correctly 1`] = `
       withPortal={false}
     />
     <Textarea
-      height={100}
       onChange={[Function]}
+      placeholder="Add a note for your expense (optional)"
       value=""
     />
     <div>
@@ -233,8 +233,8 @@ exports[`should render ExpenseForm with expense data 1`] = `
       withPortal={false}
     />
     <Textarea
-      height={100}
       onChange={[Function]}
+      placeholder="Add a note for your expense (optional)"
       value=""
     />
     <div>
@@ -359,8 +359,8 @@ exports[`should render error for invalid form submission 1`] = `
       withPortal={false}
     />
     <Textarea
-      height={100}
       onChange={[Function]}
+      placeholder="Add a note for your expense (optional)"
       value=""
     />
     <div>
